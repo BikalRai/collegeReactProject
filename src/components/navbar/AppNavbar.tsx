@@ -1,10 +1,14 @@
-import AppNavbarTop from './AppNavbarTop';
+import LineSeparator from "../LineSeparator";
+import AppNavbarBottom from "./AppNavbarBottom";
+import AppNavbarTop from "./AppNavbarTop";
 
 const AppNavbar = () => {
   return (
-    <div>
+    <nav className='flex flex-col gap-5'>
       <AppNavbarTop />
-    </div>
+      <LineSeparator />
+      <AppNavbarBottom />
+    </nav>
   );
 };
 
