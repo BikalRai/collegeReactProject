@@ -1,10 +1,14 @@
 import HeroSection from '../components/HeroSection';
+import LineSeparator from '../components/LineSeparator';
 import AppLayout from '../layouts/AppLayout';
 
 const Home = () => {
   return (
     <AppLayout>
-      <HeroSection />
+      <div>
+        <HeroSection />
+        {/* <LineSeparator /> */}
+      </div>
     </AppLayout>
   );
 };

@@ -33,7 +33,7 @@ const AppNavbarBottom = () => {
       </div>
       <div
         className={`${showMenu ? 'flex' : 'hidden'}
-      absolute top-0 left-0 flex-col gap-5 bg-cardbg p-6 rounded-2xl z-50  md:static md:flex md:flex-row md:h-auto md:w-auto md:bg-transparent md:p-0 md:rounded-none`}
+      absolute top-0 left-0 flex-col gap-5 app__nav_link bg-cardbg p-6 rounded-2xl z-50  md:static md:flex md:flex-row md:h-auto md:w-auto md:bg-transparent md:p-0 md:rounded-none`}
       >
         <button
           onClick={() => setShowMenu(false)}
@@ -47,7 +47,7 @@ const AppNavbarBottom = () => {
           <NavLink
             key={link.id}
             to={link.path}
-            className="transition hover:text-primary"
+            className={`transition hover:text-primary`}
           >
             {link.name}
           </NavLink>

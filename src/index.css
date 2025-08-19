@@ -22,4 +22,5 @@ body {
 
 .app__nav_link .active {
   color: var(--color-primary);
+  font-weight: 600;
 }
