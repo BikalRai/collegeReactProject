@@ -1,9 +1,10 @@
+import HeroSection from '../components/HeroSection';
 import AppLayout from '../layouts/AppLayout';
 
 const Home = () => {
   return (
     <AppLayout>
-      <div>Home</div>
+      <HeroSection />
     </AppLayout>
   );
 };
