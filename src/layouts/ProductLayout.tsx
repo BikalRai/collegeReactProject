@@ -4,7 +4,7 @@ interface ProductLayoutType {
 
 const ProductLayout = ({ children }: ProductLayoutType) => {
   return (
-    <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+    <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4'>
       {children}
     </div>
   );

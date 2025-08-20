@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import type { ProductTypes } from "../utilities/types/productType";
-import PrimaryButtonNoGlow from "./button/PrimaryButtonNoGlow";
 import SecondaryButtonNoGlow from "./button/SecondaryButtonNoGlow";
+import PrimaryButtonNoGlow from "./button/PrimaryButtonNoGlow";
 
 interface ProductCardType {
   product: ProductTypes;
