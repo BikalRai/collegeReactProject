@@ -9,7 +9,7 @@ interface ProductCardType {
 
 const ProductCard = ({ product }: ProductCardType) => {
   return (
-    <div className='bg-cardbg-light text-sm font-semibold text-muted grid gap-4 p-4 rounded-2xl'>
+    <div className='bg-cardbg-light text-sm font-semibold text-muted grid gap-4 p-4 rounded-2xl transition-transform hover:-translate-y-2'>
       <div className='rounded-xl overflow-hidden h-[208px]'>
         <img
           src={product.image}
