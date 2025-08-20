@@ -1,7 +1,9 @@
+import BlogsSection from "../components/BlogsSection";
 import CategorySection from "../components/categorySection'/CategorySection";
-import HeroSection from '../components/HeroSection';
-import RecommendationSection from '../components/recommendationSection/RecommendationSection';
-import AppLayout from '../layouts/AppLayout';
+import HeroSection from "../components/HeroSection";
+import RecommendationSection from "../components/recommendationSection/RecommendationSection";
+import TopRatedSection from "../components/TopRatedSection";
+import AppLayout from "../layouts/AppLayout";
 
 const Home = () => {
   return (
@@ -10,6 +12,8 @@ const Home = () => {
         <HeroSection />
         <CategorySection />
         <RecommendationSection />
+        <TopRatedSection />
+        <BlogsSection />
       </div>
     </AppLayout>
   );

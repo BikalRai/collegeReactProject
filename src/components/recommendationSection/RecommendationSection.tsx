@@ -23,7 +23,6 @@ const RecommendationSection = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(`${BASE_URL}/products`);
-        console.log(res);
         dispatch(setAllProducts(res.data));
       } catch (error) {
         console.error("Error fetching all products from db.json", error);
