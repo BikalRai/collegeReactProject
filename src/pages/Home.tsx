@@ -1,5 +1,6 @@
+import CategorySection from "../components/categorySection'/CategorySection";
 import HeroSection from '../components/HeroSection';
-import LineSeparator from '../components/LineSeparator';
+import RecommendationSection from '../components/recommendationSection/RecommendationSection';
 import AppLayout from '../layouts/AppLayout';
 
 const Home = () => {
@@ -7,7 +8,8 @@ const Home = () => {
     <AppLayout>
       <div>
         <HeroSection />
-        {/* <LineSeparator /> */}
+        <CategorySection />
+        <RecommendationSection />
       </div>
     </AppLayout>
   );
