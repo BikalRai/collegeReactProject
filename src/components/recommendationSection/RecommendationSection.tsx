@@ -39,7 +39,7 @@ const RecommendationSection = () => {
         <ProductLayout>
           {products
             .filter((product) => product.badge.includes("recommended"))
-            .slice(0, 5)
+            .slice(0, 4)
             .map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
