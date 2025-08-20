@@ -1,4 +1,4 @@
-import type React from 'react';
+import type React from "react";
 
 interface AppContainerPropTpes {
   children: React.ReactNode;
@@ -6,7 +6,7 @@ interface AppContainerPropTpes {
 
 const AppContainer: React.FC<AppContainerPropTpes> = ({ children }) => {
   return (
-    <div className="text-text-primary  mt-8 p-4 lg:w-[1440px] lg:m-auto lg:px-20 ">
+    <div className='text-text-primary  mt-8 p-4 w-full max-w-[1440px] mx-auto lg:px-20 '>
       {children}
     </div>
   );
