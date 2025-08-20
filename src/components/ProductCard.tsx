@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import type { ProductTypes } from "../utilities/types/productType";
-import PrimaryButton from "./button/PrimaryButton";
-import SecondaryButton from "./button/SecondaryButton";
+import PrimaryButtonNoGlow from "./button/PrimaryButtonNoGlow";
+import SecondaryButtonNoGlow from "./button/SecondaryButtonNoGlow";
 
 interface ProductCardType {
   product: ProductTypes;
@@ -28,9 +28,9 @@ const ProductCard = ({ product }: ProductCardType) => {
         </p>
         <div className='flex items-center gap-2'>
           <Link to=''>
-            <SecondaryButton btnText='View Details' />
+            <SecondaryButtonNoGlow btnText='View Details' />
           </Link>
-          <PrimaryButton btnText='Add to cart' />
+          <PrimaryButtonNoGlow btnText='Add to cart' />
         </div>
       </div>
     </div>

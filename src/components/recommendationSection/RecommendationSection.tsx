@@ -8,6 +8,7 @@ import type { RootState } from "../../store";
 import axios from "axios";
 import { BASE_URL } from "../../utilities/base_url";
 import { setAllProducts } from "../../slices/productSlice";
+import ProductLayout from "../../layouts/ProductLayout";
 
 const recommendation: SectionHeaderTypes = {
   title: "BitYeti Recommends",
@@ -36,14 +37,14 @@ const RecommendationSection = () => {
     <AppContainer>
       <div>
         <SectionHeader section={recommendation} />
-        <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+        <ProductLayout>
           {products
             .filter((product) => product.badge.includes("recommended"))
             .slice(0, 5)
             .map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-        </div>
+        </ProductLayout>
       </div>
     </AppContainer>
   );

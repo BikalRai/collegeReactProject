@@ -9,7 +9,7 @@ interface SectionHeaderPropTypes {
 const SectionHeader: React.FC<SectionHeaderPropTypes> = ({ section }) => {
   return (
     <div className='flex items-center justify-between mt-20 mb-12'>
-      <h1 className='afer:conent[""] after:h-0.5 after:block after:w-full after:bg-primary after:mt-3.5'>
+      <h1 className='text-2xl afer:conent[""] after:h-0.5 after:block after:w-full after:bg-primary after:mt-3.5'>
         {section.title}
       </h1>
       <Link
