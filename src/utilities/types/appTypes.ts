@@ -3,6 +3,10 @@ export interface SectionHeaderTypes {
   path: string;
 }
 
+export interface SectionHeaderNoLinkTypes {
+  title: string;
+}
+
 export interface FooterLinkTypes {
   path: string;
   icon: React.ReactNode;

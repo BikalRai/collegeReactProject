@@ -1,15 +1,14 @@
-import { useSelector } from "react-redux";
-import type { RootState } from "../store";
-import AppLayout from "../layouts/AppLayout";
-import ProductCard from "../components/ProductCard";
-import ProductLayout from "../layouts/ProductLayout";
-import AppContainer from "../components/container/AppContainer";
-import SectionHeader from "../components/SectionHeader";
-import type { SectionHeaderTypes } from "../utilities/types/appTypes";
+import { useSelector } from 'react-redux';
+import type { RootState } from '../store';
+import AppLayout from '../layouts/AppLayout';
+import ProductCard from '../components/ProductCard';
+import ProductLayout from '../layouts/ProductLayout';
+import AppContainer from '../components/container/AppContainer';
+import type { SectionHeaderNoLinkTypes } from '../utilities/types/appTypes';
+import SectionHeaderNoLinks from '../components/SectionHeaderNoLinks';
 
-const recommendationPageHeader: SectionHeaderTypes = {
-  title: "Recommendations",
-  path: "",
+const recommendationPageHeader: SectionHeaderNoLinkTypes = {
+  title: 'Recommendations',
 };
 
 const RecommendationPage = () => {
@@ -17,10 +16,10 @@ const RecommendationPage = () => {
   return (
     <AppLayout>
       <AppContainer>
-        <SectionHeader section={recommendationPageHeader} />
+        <SectionHeaderNoLinks section={recommendationPageHeader} />
         <ProductLayout>
           {products
-            .filter((product) => product.badge.includes("recommended"))
+            .filter((product) => product.badge.includes('recommended'))
             .map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
