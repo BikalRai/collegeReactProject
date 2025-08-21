@@ -6,10 +6,10 @@ import { FaBars } from 'react-icons/fa';
 
 const navLinks: NavLinkType[] = [
   { id: 1, path: '/', name: 'Home' },
-  { id: 2, path: 'accessories', name: 'Accessories' },
-  { id: 3, path: 'setups', name: 'Setups' },
-  { id: 4, path: 'deals', name: 'Deals' },
-  { id: 5, path: 'about', name: 'About' },
+  { id: 2, path: '/shop', name: 'Shop' },
+  { id: 3, path: '/setups', name: 'Setups' },
+  { id: 4, path: '/deals', name: 'Deals' },
+  { id: 5, path: '/about', name: 'About' },
 ];
 
 const selectValues = [
