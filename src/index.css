@@ -25,6 +25,20 @@ body {
   font-weight: 600;
 }
 
+.product__links a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin-top: 8px;
+  transition: width 0.3s;
+}
+
+.product__links a.active::after {
+  width: 100%;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 24px !important;

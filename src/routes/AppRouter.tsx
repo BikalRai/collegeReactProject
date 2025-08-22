@@ -1,25 +1,32 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from '../pages/Home';
-import RecommendationPage from '../pages/RecommendationPage';
-import ShopPage from '../pages/ShopPage';
-import ProductPage from '../pages/ProductPage';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "../pages/Home";
+import RecommendationPage from "../pages/RecommendationPage";
+import ShopPage from "../pages/ShopPage";
+import ProductPage from "../pages/ProductPage";
+import ProductDescription from "../components/productPage/ProductDescription";
+import ProductReviews from "../components/productPage/ProductReviews";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
   },
   {
-    path: '/shop',
+    path: "/shop",
     element: <ShopPage />,
   },
   {
-    path: '/recommendations',
+    path: "/recommendations",
     element: <RecommendationPage />,
   },
   {
-    path: '/shop/:id',
+    path: "/shop/:id",
     element: <ProductPage />,
+    children: [
+      { index: true, element: <ProductDescription /> },
+      { path: "description", element: <ProductDescription /> },
+      { path: "reviews", element: <ProductReviews /> },
+    ],
   },
 ]);
 
