@@ -12,7 +12,9 @@ const CartCard = () => {
           <p>Rs product price</p>
           <p className='line-through text-muted'>Rs discounted price</p>
         </div>
-        <QuantityCounter />
+        <div className='ms-auto'>
+          <QuantityCounter />
+        </div>
       </div>
     </div>
   );
