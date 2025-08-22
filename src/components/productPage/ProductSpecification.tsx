@@ -15,7 +15,7 @@ const ProductSpecification = () => {
     <div className='grid md:grid-cols-2 gap-5'>
       <div className='grid'>
         <div className='border border-primary h-[360px] lg:h-[588px]'>
-          <img src='' alt='image' className='h-auto w-full' />
+          <img src='asdsad' alt='image' className='h-auto w-full' />
         </div>
         <Swiper
           modules={[Navigation]}

@@ -5,7 +5,7 @@ const BlogCard = () => {
     <div className='bg-cardbg-light rounded-2xl overflow-hidden transition-transform hover:-translate-y-3'>
       <div className='h-[160px] overflow-hidden rounded-tl-2xl rounded-tr-2xl'>
         <img
-          src=''
+          src='asd'
           alt='Blog image'
           className='w-full h-full object-cover object-center'
         />
