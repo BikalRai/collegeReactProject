@@ -45,3 +45,18 @@ body {
   font-weight: bold;
   color: var(--color-primary);
 }
+
+.admin__nav a {
+  color: var(--color-cardbg-light);
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.admin__nav a:hover {
+  background-color: var(--color-primary);
+}
+
+.admin__nav a.active {
+  color: var(--color-cardbg);
+  background-color: var(--color-primary);
+  font-weight: 500;
+}

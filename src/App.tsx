@@ -1,9 +1,11 @@
-import AppRouter from './routes/AppRouter';
+import AdminRouter from "./routes/AdminRouter";
+// import AppRouter from "./routes/AppRouter";
 
 function App() {
   return (
     <>
-      <AppRouter />
+      {/* <AppRouter /> */}
+      <AdminRouter />
     </>
   );
 }
