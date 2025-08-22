@@ -63,7 +63,7 @@ const ProductSpecification = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div>
+      <div className='flex flex-col justify-between'>
         {/* header seection */}
         <div className='border-b border-b-muted pb-7'>
           <div className='flex items-center justify-between'>
@@ -99,11 +99,11 @@ const ProductSpecification = () => {
         <ProductPageSection>
           <div className='flex items-center gap-5'>
             <div className='bg-cardbg-light text-cardbg rounded-full flex items-center gap-8 text-lg overflow-hidden'>
-              <button className='cursor-pointer transition-colors hover:bg-muted p-2.5'>
+              <button className='cursor-pointer transition-colors hover:bg-primary hover:text-cardbg-light p-2.5'>
                 -
               </button>
               <span>5</span>
-              <button className='cursor-pointer transition-colors hover:bg-muted p-2.5'>
+              <button className='cursor-pointer transition-colors hover:bg-primary hover:text-cardbg-light p-2.5'>
                 +
               </button>
             </div>

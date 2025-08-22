@@ -20,3 +20,9 @@ export interface FooterUsefulLinkTypes {
 export interface FooterHeaderType {
   title: string;
 }
+
+export interface TextareaType {
+  title: string;
+  placeholderText: string;
+  textRow: number;
+}
