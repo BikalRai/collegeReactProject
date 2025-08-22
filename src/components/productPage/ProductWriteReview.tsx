@@ -1,4 +1,5 @@
 import PrimaryButtonNoGlow from "../button/PrimaryButtonNoGlow";
+import StarRating from "../starRating/StarRating";
 import ProductReviewTextarea from "./ProductReviewTextarea";
 import ProductSectionHeader from "./ProductSectionHeader";
 
@@ -8,7 +9,7 @@ const ProductWriteReview = () => {
       <ProductSectionHeader title='Write a Review' />
       <div>
         <p>What do you like about the Product?</p>
-        <div>⭐⭐⭐⭐⭐</div>
+        <StarRating maxRating={5} />
       </div>
       <ProductReviewTextarea
         title='Review Title'

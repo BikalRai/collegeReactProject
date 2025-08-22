@@ -26,3 +26,14 @@ export interface TextareaType {
   placeholderText: string;
   textRow: number;
 }
+
+export interface StarRatingType {
+  maxRating: number;
+}
+
+export interface StarFuncType {
+  onRate: () => void;
+  onHoverIn: () => void;
+  onHoverOut: () => void;
+  full: boolean;
+}
