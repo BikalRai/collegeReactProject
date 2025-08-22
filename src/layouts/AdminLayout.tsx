@@ -1,4 +1,5 @@
 import AdminNavbar from "../components/navbar/adminNavbar/AdminNavbar";
+import AdminTopBar from "../components/navbar/adminNavbar/AdminTopBar";
 
 interface LayoutProp {
   children: React.ReactNode;
@@ -11,8 +12,8 @@ const AdminLayout = ({ children }: LayoutProp) => {
         <AdminNavbar />
       </div>
       <div className='grow'>
-        <div>profile</div>
-        <div>{children}</div>
+        <AdminTopBar />
+        <div className='p-8'>{children}</div>
       </div>
     </div>
   );
