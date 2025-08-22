@@ -1,3 +1,4 @@
+import PrimaryButtonNoGlow from "../components/button/PrimaryButtonNoGlow";
 import CartCard from "../components/cart/CartCard";
 import AppContainer from "../components/container/AppContainer";
 import SectionHeaderNoLinks from "../components/SectionHeaderNoLinks";
@@ -14,7 +15,10 @@ const CartPage = () => {
       <AppContainer>
         <div>
           <SectionHeaderNoLinks section={section} />
-          <CartCard />
+          <div className='grid gap-6'>
+            <CartCard />
+            <PrimaryButtonNoGlow btnText='Clear Cart' />
+          </div>
         </div>
       </AppContainer>
     </AppLayout>
