@@ -9,6 +9,7 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import QuantityCounter from "../QuantityCounter";
 
 const ProductSpecification = () => {
   return (
@@ -98,15 +99,7 @@ const ProductSpecification = () => {
         {/* quantity and action */}
         <ProductPageSection>
           <div className='flex items-center gap-5'>
-            <div className='bg-cardbg-light text-cardbg rounded-full flex items-center gap-8 text-lg overflow-hidden'>
-              <button className='cursor-pointer transition-colors hover:bg-primary hover:text-cardbg-light p-2.5'>
-                -
-              </button>
-              <span>5</span>
-              <button className='cursor-pointer transition-colors hover:bg-primary hover:text-cardbg-light p-2.5'>
-                +
-              </button>
-            </div>
+            <QuantityCounter />
             <PrimaryButtonNoGlow btnText='Add to cart' />
           </div>
         </ProductPageSection>

@@ -9,6 +9,7 @@ import ShopPage from "../pages/ShopPage";
 import ProductPage from "../pages/ProductPage";
 import ProductDescription from "../components/productPage/ProductDescription";
 import ProductReviews from "../components/productPage/ProductReviews";
+import CartPage from "../pages/CartPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       { path: "description", element: <ProductDescription /> },
       { path: "reviews", element: <ProductReviews /> },
     ],
+  },
+  {
+    path: "/cart",
+    element: <CartPage />,
   },
 ]);
 
