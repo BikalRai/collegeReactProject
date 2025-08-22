@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Home from "../pages/Home";
 import RecommendationPage from "../pages/RecommendationPage";
 import ShopPage from "../pages/ShopPage";
@@ -20,10 +24,10 @@ const router = createBrowserRouter([
     element: <RecommendationPage />,
   },
   {
-    path: "/shop/:id",
+    path: "/shop/:productId",
     element: <ProductPage />,
     children: [
-      { index: true, element: <ProductDescription /> },
+      { index: true, element: <Navigate to='description' replace /> },
       { path: "description", element: <ProductDescription /> },
       { path: "reviews", element: <ProductReviews /> },
     ],
