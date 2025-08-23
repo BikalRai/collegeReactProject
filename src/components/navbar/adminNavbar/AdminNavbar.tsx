@@ -26,7 +26,10 @@ const navLinks: AdminNavLinkType[] = [
 
 const AdminNavbar = () => {
   return (
-    <div className='h-full w-max-[216px] shadow-xl flex flex-col items-center py-5'>
+    <div
+      style={{ position: "fixed", top: 0, left: 0 }}
+      className='h-screen w-20 md:w-[216px] shadow-xl flex flex-col items-center py-5'
+    >
       <div>
         <img src={logo} alt='' />
       </div>

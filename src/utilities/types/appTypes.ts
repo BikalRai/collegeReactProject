@@ -37,3 +37,9 @@ export interface StarFuncType {
   onHoverOut: () => void;
   full: boolean;
 }
+
+export interface InputType {
+  name: string;
+  type?: string;
+  inputPlaceholder: string;
+}

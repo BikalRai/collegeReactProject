@@ -7,11 +7,12 @@ interface LayoutProp {
 
 const AdminLayout = ({ children }: LayoutProp) => {
   return (
-    <div className='flex text-text-primary font-medium w-full max-w-screen overflow-x-hidden'>
-      <div className='h-screen sticky top-0 '>
+    <div className='grid grid-cols-[80px_1fr]  md:grid-cols-[216px_1fr] text-text-primary font-medium min-h-screen w-full overflow-x-hidden'>
+      <div>
         <AdminNavbar />
       </div>
-      <div className='grow w-full overflow-x-hidden'>
+
+      <div className='min-h-screen overflow-x-hidden'>
         <AdminTopBar />
         <div className='p-4 md:p-8'>{children}</div>
       </div>
