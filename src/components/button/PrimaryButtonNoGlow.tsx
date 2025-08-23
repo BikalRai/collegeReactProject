@@ -1,4 +1,4 @@
-import type { BtnType } from "../../utilities/types/btnTYpe";
+import type { BtnType } from "../../utilities/types/btnType";
 
 const PrimaryButtonNoGlow = ({ btnText }: BtnType) => {
   return (

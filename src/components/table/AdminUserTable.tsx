@@ -1,0 +1,57 @@
+import TertiaryButton from "../button/TertiaryButton";
+
+const AdminUserTable = () => {
+  return (
+    <div className='overflow-x-auto'>
+      <table className='w-full border-collapse divide-y divide-muted'>
+        <thead className='bg-cardbg'>
+          <tr className='text-muted'>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider'>
+              Id
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider'>
+              Name
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider max-w-[200px] truncate'>
+              Email
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider'>
+              Phone
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider max-w-[200px] truncate'>
+              Address
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider max-w-[150px] truncate'>
+              ImageUrl
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium uppercase tracking-wider'>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className='bg-text-primary'>
+            <td className='px-6 py-4 text-sm font-medium text-gray-900'>1</td>
+            <td className='px-6 py-4 text-sm text-gray-500'>John Doe</td>
+            <td className='px-6 py-4 text-sm text-gray-500 max-w-[200px] truncate'>
+              john@example.com
+            </td>
+            <td className='px-6 py-4 text-sm text-gray-500'>555-1234</td>
+            <td className='px-6 py-4 text-sm text-gray-500 max-w-[200px] truncate'>
+              123 Main St, New York City, NY, USA
+            </td>
+            <td className='px-6 py-4 text-sm text-gray-500 max-w-[150px] truncate'>
+              url_to_image.jpg
+            </td>
+            <td className='px-6 py-4 text-sm font-medium flex flex-col gap-2 items-center'>
+              <TertiaryButton btnText='Edit' />
+              <TertiaryButton btnText='Delete' />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default AdminUserTable;
