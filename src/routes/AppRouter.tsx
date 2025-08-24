@@ -10,6 +10,10 @@ import ProductPage from "../pages/ProductPage";
 import ProductDescription from "../components/productPage/ProductDescription";
 import ProductReviews from "../components/productPage/ProductReviews";
 import CartPage from "../pages/CartPage";
+import PeripheralsPage from "../pages/PeripheralsPage";
+import VisualsPage from "../pages/VisualsPage";
+import PowerCorePage from "../pages/PowerCorePage";
+import ComfortGearPage from "../pages/ComfortGearPage";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +25,7 @@ const router = createBrowserRouter([
     element: <ShopPage />,
   },
   {
-    path: "/recommendations",
+    path: "/shop/recommendations",
     element: <RecommendationPage />,
   },
   {
@@ -32,6 +36,22 @@ const router = createBrowserRouter([
       { path: "description", element: <ProductDescription /> },
       { path: "reviews", element: <ProductReviews /> },
     ],
+  },
+  {
+    path: "/shop/peripherals",
+    element: <PeripheralsPage />,
+  },
+  {
+    path: "/shop/visuals",
+    element: <VisualsPage />,
+  },
+  {
+    path: "/shop/power",
+    element: <PowerCorePage />,
+  },
+  {
+    path: "/shop/comfort",
+    element: <ComfortGearPage />,
   },
   {
     path: "/cart",

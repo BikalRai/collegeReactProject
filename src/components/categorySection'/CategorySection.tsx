@@ -10,21 +10,25 @@ const categories: CategoryTypes[] = [
     id: 1,
     title: "Peripherals",
     icon: <CiDesktopMouse1 className='w-12 h-12 stroke-1' />,
+    path: "/shop/peripherals",
   },
   {
     id: 2,
     title: "Visuals",
     icon: <LuMonitor className='w-12 h-12 stroke-1' />,
+    path: "/shop/visuals",
   },
   {
     id: 3,
     title: "Power Core",
     icon: <GiProcessor className='w-12 h-12 stroke-1' />,
+    path: "/shop/power",
   },
   {
     id: 4,
     title: "Comfort Gear",
     icon: <PiOfficeChair className='w-12 h-12 stroke-1' />,
+    path: "/shop/comfort",
   },
 ];
 

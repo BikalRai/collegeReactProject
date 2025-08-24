@@ -6,7 +6,7 @@ import {
 import type { ProductTypes } from "../utilities/types/productType";
 import axios from "axios";
 
-const BASE_URL = import.meta.env.BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface ProductState {
   products: ProductTypes[];
@@ -22,21 +22,28 @@ const initialState: ProductState = {
 
 // async thunk for fetching product
 export const fetchProducts = createAsyncThunk<
-  ProductTypes[],
-  void,
-  { rejectValue: string }
->("product/fetchProducts", async (_, thunkApi) => {
+  ProductTypes[], // Return type
+  void, // Argument type (void means no arguments)
+  { rejectValue: string } // ThunkAPI config
+>("products/fetchProducts", async (_, { rejectWithValue }) => {
   try {
     const res = await axios.get(`${BASE_URL}/products`);
-    return res.data as ProductTypes[];
-  } catch (error: unknown) {
-    let message = "Failed to fetch products";
 
-    if (error instanceof Error) {
-      message = error.message;
+    return res.data;
+  } catch (error) {
+    // Fix 1: Proper axios error handling
+    if (axios.isAxiosError(error)) {
+      // Handle axios-specific errors
+      const message =
+        error.response?.data?.message ||
+        error.message ||
+        "Network error occurred";
+      return rejectWithValue(message);
     }
-
-    return thunkApi.rejectWithValue(message);
+    // Handle other types of errors
+    return rejectWithValue(
+      error instanceof Error ? error.message : "Failed to fetch products"
+    );
   }
 });
 
@@ -46,6 +53,9 @@ const productSlice = createSlice({
   reducers: {
     setAllProducts(state, action: PayloadAction<ProductTypes[]>) {
       state.products = action.payload;
+    },
+    clearError(state) {
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
@@ -57,6 +67,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
         state.products = action.payload;
+        state.error = null;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
@@ -65,5 +76,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { setAllProducts } = productSlice.actions;
+export const { setAllProducts, clearError } = productSlice.actions;
+
 export default productSlice.reducer;

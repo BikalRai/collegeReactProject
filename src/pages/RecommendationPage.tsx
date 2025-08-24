@@ -28,13 +28,17 @@ const RecommendationPage = () => {
       <AppContainer>
         <SectionHeaderNoLinks section={recommendationPageHeader} />
         <ProductLayout>
-          {loading && <p>Loading...</p>}
-          {error && <p>error</p>}
-          {products
-            .filter((product) => product.badge.includes("recommended"))
-            .map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+          {loading ? (
+            <p>Loading....</p>
+          ) : error ? (
+            <p>{error}</p>
+          ) : (
+            products
+              .filter((product) => product.badge.includes("recommended"))
+              .map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+          )}
         </ProductLayout>
       </AppContainer>
     </AppLayout>
