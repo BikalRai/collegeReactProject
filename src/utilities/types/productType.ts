@@ -19,3 +19,12 @@ export interface CreateProductPayload {
   rating: number;
   reviews: string[];
 }
+
+export interface UpdateProductPayload {
+  productId: string | number;
+  data: CreateProductPayload;
+}
+
+export interface DeleteProductPayload {
+  productId: string | number;
+}

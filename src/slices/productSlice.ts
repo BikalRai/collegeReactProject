@@ -5,7 +5,9 @@ import {
 } from "@reduxjs/toolkit";
 import type {
   CreateProductPayload,
+  DeleteProductPayload,
   ProductTypes,
+  UpdateProductPayload,
 } from "../utilities/types/productType";
 import axios from "axios";
 
@@ -61,6 +63,41 @@ export const addProduct = createAsyncThunk<
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : "Failed to add Product"
+    );
+  }
+});
+
+export const updateProduct = createAsyncThunk<
+  ProductTypes,
+  UpdateProductPayload,
+  { rejectValue: string }
+>(
+  "products/updateProduct",
+  async ({ productId, data }, { rejectWithValue }) => {
+    try {
+      const res = await axios.put(`${BASE_URL}/products/${productId}`, data);
+
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(
+        error instanceof Error ? error.message : "Failed to update product"
+      );
+    }
+  }
+);
+
+export const deleteProduct = createAsyncThunk<
+  ProductTypes,
+  DeleteProductPayload,
+  { rejectValue: string }
+>("products/deleteProduct", async ({ productId }, { rejectWithValue }) => {
+  try {
+    const res = await axios.delete(`${BASE_URL}/products/${productId}`);
+
+    return res.data && { message: "deleted Product" };
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : "Failed to delete product"
     );
   }
 });
