@@ -1,10 +1,12 @@
+import AdminHeaderWithBack from "../components/AdminHeaderWithBack";
 import PrimaryButtonNoGlow from "../components/button/PrimaryButtonNoGlow";
 import Input from "../components/form/Input";
-import SectionHeaderNoLinks from "../components/SectionHeaderNoLinks";
-import type { FooterHeaderType } from "../utilities/types/appTypes";
+import AdminLayout from "../layouts/AdminLayout";
+import type { HeaderWithBackTypes } from "../utilities/types/appTypes";
 
-const section: FooterHeaderType = {
+const section: HeaderWithBackTypes = {
   title: "Add New User",
+  btnText: "Back",
 };
 
 const formInputs = [
@@ -17,22 +19,24 @@ const formInputs = [
 
 const AddNewUser = () => {
   return (
-    <form>
-      <SectionHeaderNoLinks section={section} />
-      <div className='grid gap-5 md:grid-cols-2'>
-        {formInputs.map((input, i) => (
-          <Input
-            key={i}
-            name={input.name}
-            type={input.type}
-            inputPlaceholder={input.inputPlaceholder}
-          />
-        ))}
-      </div>
-      <div className='mt-5'>
-        <PrimaryButtonNoGlow btnText='Submit' />
-      </div>
-    </form>
+    <AdminLayout>
+      <form>
+        <AdminHeaderWithBack section={section} backPath='users' />
+        <div className='grid gap-5 md:grid-cols-2'>
+          {formInputs.map((input, i) => (
+            <Input
+              key={i}
+              name={input.name}
+              type={input.type}
+              inputPlaceholder={input.inputPlaceholder}
+            />
+          ))}
+        </div>
+        <div className='mt-5'>
+          <PrimaryButtonNoGlow btnText='Submit' />
+        </div>
+      </form>
+    </AdminLayout>
   );
 };
 

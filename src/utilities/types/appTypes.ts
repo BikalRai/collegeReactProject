@@ -43,3 +43,8 @@ export interface InputType {
   type?: string;
   inputPlaceholder: string;
 }
+
+export interface HeaderWithBackTypes {
+  title: string;
+  btnText: string;
+}

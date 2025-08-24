@@ -1,8 +1,9 @@
-import type { FooterHeaderType } from "../utilities/types/appTypes";
+import { Link } from "react-router-dom";
+import type { SectionHeaderTypes } from "../utilities/types/appTypes";
 import PrimaryButtonNoGlow from "./button/PrimaryButtonNoGlow";
 
 interface SectionType {
-  section: FooterHeaderType;
+  section: SectionHeaderTypes;
 }
 
 const AdminHeader = ({ section }: SectionType) => {
@@ -11,7 +12,9 @@ const AdminHeader = ({ section }: SectionType) => {
       <h1 className='text-2xl afer:conent[""] after:h-1 after:block after:w-full after:bg-primary after:mt-3.5'>
         {section.title}
       </h1>
-      <PrimaryButtonNoGlow btnText='Add New' />
+      <Link to={`/users/${section.path}`}>
+        <PrimaryButtonNoGlow btnText='Add New' />
+      </Link>
     </div>
   );
 };
