@@ -1,14 +1,15 @@
 import AppContainer from "../container/AppContainer";
 import type { SectionHeaderTypes } from "../../utilities/types/appTypes";
-import SectionHeader from "../SectionHeader";
+
 import ProductCard from "../ProductCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../../store";
+import type { RootState } from "../../store/store";
 import axios from "axios";
 import { BASE_URL } from "../../utilities/base_url";
 import { setAllProducts } from "../../slices/productSlice";
 import ProductLayout from "../../layouts/ProductLayout";
+import SectionHeader from "../headers/SectionHeader";
 
 const recommendation: SectionHeaderTypes = {
   title: "BitYeti Recommends",

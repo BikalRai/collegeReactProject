@@ -5,100 +5,120 @@
       "name": "Gaming Keyboard",
       "price": 1500,
       "discountPrice": 1200,
-      "image": "keyboard.png",
+      "images": ["keyboard.png"],
       "badge": ["recommended"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 2,
       "name": "Mechanical Gaming Keyboard",
       "price": 2200,
       "discountPrice": 1800,
-      "image": "keyboard.png",
+      "images": ["keyboard.png"],
       "badge": ["recommended", "topRated"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 3,
       "name": "RGB Gaming Keyboard",
       "price": 2000,
       "discountPrice": 1600,
-      "image": "keyboard.png",
+      "images": ["keyboard.png"],
       "badge": ["hotDeal"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 4,
       "name": "Wireless Gaming Keyboard",
       "price": 2500,
       "discountPrice": 2100,
-      "image": "keyboard.png",
+      "images": ["keyboard.png"],
       "badge": ["recommended", "hotDeal"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 5,
       "name": "Gaming Mouse",
       "price": 1700,
       "discountPrice": 1400,
-      "image": "mouse.png",
+      "images": ["mouse.png"],
       "badge": ["topRated"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 6,
       "name": "Mechanical Mouse Pad",
       "price": 2600,
       "discountPrice": 2200,
-      "image": "mousepad.png",
+      "images": ["mousepad.png"],
       "badge": ["recommended", "topRated"],
       "categories": ["comfort gear"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 7,
       "name": "Pro Mechanical Keyboard",
       "price": 2800,
       "discountPrice": 2400,
-      "image": "keyboard.png",
+      "images": ["keyboard.png"],
       "badge": ["hotDeal", "topRated"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 8,
       "name": "Gaming Headset",
       "price": 1900,
       "discountPrice": 1600,
-      "image": "headset.png",
+      "images": ["headset.png"],
       "badge": ["recommended"],
       "categories": ["visuals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 9,
       "name": "Ultra Slim Gaming Keyboard",
       "price": 2100,
       "discountPrice": 1750,
-      "image": "keyboard.png",
+      "images": ["keyboard.png"],
       "badge": ["topRated"],
       "categories": ["peripherals"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     },
     {
       "id": 10,
       "name": "Gaming Chair",
       "price": 1200,
       "discountPrice": 1000,
-      "image": "chair.png",
+      "images": ["chair.png"],
       "badge": ["hotDeal", "recommended"],
       "categories": ["comfort gear"],
-      "onSale": true
+      "onSale": true,
+      "rating": 0,
+      "reviews": []
     }
   ]
 }

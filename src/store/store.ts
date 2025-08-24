@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import productReducer from './slices/productSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import productReducer from "../slices/productSlice";
 import {
   persistStore,
   persistReducer,
@@ -9,12 +9,12 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import localStorage from 'redux-persist/lib/storage';
-import { combineReducers } from '@reduxjs/toolkit';
+} from "redux-persist";
+import localStorage from "redux-persist/lib/storage";
+import { combineReducers } from "@reduxjs/toolkit";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1,
   storage: localStorage,
 };

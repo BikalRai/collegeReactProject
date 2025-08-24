@@ -5,7 +5,7 @@ import type { SectionHeaderTypes } from "../utilities/types/appTypes";
 
 const section: SectionHeaderTypes = {
   title: "Users",
-  path: "add",
+  path: "/users/add",
 };
 
 const AdminUserDetailspage = () => {

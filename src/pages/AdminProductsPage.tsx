@@ -5,7 +5,7 @@ import type { SectionHeaderTypes } from "../utilities/types/appTypes";
 
 const section: SectionHeaderTypes = {
   title: "Products",
-  path: "add",
+  path: "/products/add",
 };
 
 const AdminProductsPage = () => {

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import ProductLayout from "../layouts/ProductLayout";
-import type { RootState } from "../store";
+import type { RootState } from "../store/store";
 import ProductCard from "./ProductCard";
 import AppContainer from "./container/AppContainer";
-import SectionHeader from "./SectionHeader";
 import type { SectionHeaderTypes } from "../utilities/types/appTypes";
+import SectionHeader from "./headers/SectionHeader";
 
 const TopRatedSectionDetails: SectionHeaderTypes = {
   title: "Top Rated",

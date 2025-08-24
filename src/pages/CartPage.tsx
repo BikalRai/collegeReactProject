@@ -2,7 +2,7 @@ import DangerButton from "../components/button/DangerButton";
 import PrimaryButtonNoGlow from "../components/button/PrimaryButtonNoGlow";
 import CartCard from "../components/cart/CartCard";
 import AppContainer from "../components/container/AppContainer";
-import SectionHeaderNoLinks from "../components/SectionHeaderNoLinks";
+import SectionHeaderNoLinks from "../components/headers/SectionHeaderNoLinks";
 import AppLayout from "../layouts/AppLayout";
 import type { SectionHeaderNoLinkTypes } from "../utilities/types/appTypes";
 

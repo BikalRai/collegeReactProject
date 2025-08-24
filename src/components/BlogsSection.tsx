@@ -1,6 +1,6 @@
 import BlogCard from "./BlogCard";
 import AppContainer from "./container/AppContainer";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "./headers/SectionHeader";
 
 const section = {
   title: "Blogs",
