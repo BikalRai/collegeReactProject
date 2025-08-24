@@ -1,4 +1,4 @@
-import AdminHeader from "../components/AdminHeader";
+import AdminHeader from "../components/headers/AdminHeader";
 import AdminProductTable from "../components/table/AdminProductTable";
 import AdminLayout from "../layouts/AdminLayout";
 import type { SectionHeaderTypes } from "../utilities/types/appTypes";

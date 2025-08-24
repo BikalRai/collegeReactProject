@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import type { SectionHeaderTypes } from "../utilities/types/appTypes";
-import PrimaryButtonNoGlow from "./button/PrimaryButtonNoGlow";
+import PrimaryButtonNoGlow from "../button/PrimaryButtonNoGlow";
+import type { SectionHeaderTypes } from "../../utilities/types/appTypes";
 
 interface SectionType {
   section: SectionHeaderTypes;

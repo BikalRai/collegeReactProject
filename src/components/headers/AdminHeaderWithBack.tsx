@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import type { HeaderWithBackTypes } from "../utilities/types/appTypes";
+import type { HeaderWithBackTypes } from "../../utilities/types/appTypes";
 
 interface PropTypes {
   section: HeaderWithBackTypes;

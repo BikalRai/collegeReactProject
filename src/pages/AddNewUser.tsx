@@ -1,6 +1,6 @@
-import AdminHeaderWithBack from "../components/AdminHeaderWithBack";
 import PrimaryButtonNoGlow from "../components/button/PrimaryButtonNoGlow";
 import Input from "../components/form/Input";
+import AdminHeaderWithBack from "../components/headers/AdminHeaderWithBack";
 import AdminLayout from "../layouts/AdminLayout";
 import type { HeaderWithBackTypes } from "../utilities/types/appTypes";
 
