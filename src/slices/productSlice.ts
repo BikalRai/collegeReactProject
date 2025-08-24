@@ -3,7 +3,10 @@ import {
   createSlice,
   type PayloadAction,
 } from "@reduxjs/toolkit";
-import type { ProductTypes } from "../utilities/types/productType";
+import type {
+  CreateProductPayload,
+  ProductTypes,
+} from "../utilities/types/productType";
 import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -43,6 +46,21 @@ export const fetchProducts = createAsyncThunk<
     // Handle other types of errors
     return rejectWithValue(
       error instanceof Error ? error.message : "Failed to fetch products"
+    );
+  }
+});
+
+export const addProduct = createAsyncThunk<
+  ProductTypes,
+  CreateProductPayload,
+  { rejectValue: string }
+>("products/addProduct", async (productData, { rejectWithValue }) => {
+  try {
+    const res = await axios.post(`${BASE_URL}/products`, productData);
+    return res.data;
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : "Failed to add Product"
     );
   }
 });
