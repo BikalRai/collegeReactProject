@@ -1,11 +1,16 @@
 export interface ProductTypes {
-  id: string;
+  id?: string;
   name: string;
-  price: number;
-  discountPrice: number;
-  image: string;
-  badge: string;
-  categories: string[];
+  price: string;
+  discountPrice: string;
+  images: string[];
+  badge: number[];
+  categories: string;
+  description: string;
+  quantity: number;
+  rating: number;
+  onSale: boolean;
+  reviews: string[];
 }
 
 export interface CreateProductPayload {
@@ -28,4 +33,9 @@ export interface UpdateProductPayload {
 
 export interface DeleteProductPayload {
   productId: string | number;
+}
+
+export interface Badge {
+  id: number;
+  name: string;
 }

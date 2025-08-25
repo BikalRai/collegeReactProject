@@ -54,6 +54,8 @@ export interface InputType {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => void;
+  onImagesChange?: (images: string[]) => void;
+  onBadgesChange?: (badges: number[]) => void;
 }
 
 export interface HeaderWithBackTypes {
