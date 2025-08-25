@@ -43,7 +43,6 @@ const AdminProductTable = ({ products }: TableProps) => {
   const handleIsOpen = (id: string) => {
     setSelectedProductId(id);
     setIsOpen(true);
-    console.log(selectedProductId, id);
   };
 
   const handleClose = () => {
