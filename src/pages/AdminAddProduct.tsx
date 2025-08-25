@@ -211,8 +211,6 @@ const AdminAddProduct = () => {
     }
   };
 
-  console.log(formData);
-
   return (
     <AdminLayout>
       <div className='grid gap-5'>

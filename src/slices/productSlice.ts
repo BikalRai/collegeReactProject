@@ -5,12 +5,14 @@ interface ProductState {
   products: ProductTypes[];
   loading: boolean;
   error: string | null;
+  successMessage: string | null;
 }
 
 const initialState: ProductState = {
   products: [],
   loading: false,
   error: null,
+  successMessage: null,
 };
 
 const productSlice = createSlice({
@@ -38,11 +40,13 @@ const productSlice = createSlice({
       state.products.push(action.payload);
       state.loading = false;
       state.error = null;
+      state.successMessage = "Product added successfully!";
     },
 
     addProductFailure(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
+      state.successMessage = null;
     },
     updateProductRequest(state) {
       state.loading = true;
@@ -55,10 +59,12 @@ const productSlice = createSlice({
       }
       state.loading = false;
       state.error = null;
+      state.successMessage = "Product updated successfully!";
     },
     updateProductFailure(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
+      state.successMessage = null;
     },
     deleteProductRequest(state) {
       state.loading = true;
@@ -71,10 +77,18 @@ const productSlice = createSlice({
       }
       state.loading = false;
       state.error = null;
+      state.successMessage = "Product deleted successfully";
     },
     deleteProductFailure(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
+      state.successMessage = null;
+    },
+    clearSuccessMessage(state) {
+      state.successMessage = null;
+    },
+    clearError(state) {
+      state.error = null;
     },
   },
 });
@@ -92,6 +106,8 @@ export const {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductFailure,
+  clearSuccessMessage,
+  clearError,
 } = productSlice.actions;
 
 export default productSlice.reducer;
