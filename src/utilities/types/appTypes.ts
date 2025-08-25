@@ -26,7 +26,7 @@ export interface TextareaType {
   placeholderText: string;
   textRow: number;
   value?: string | number | string[] | File[] | boolean;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
 }
 
 export interface StarRatingType {
@@ -44,7 +44,7 @@ export interface InputType {
   name: string;
   type?: string;
   inputPlaceholder: string;
-  inputValue?: string | number | string[] | File[] | boolean;
+  inputValue?: string | number | string[] | number[];
   inputHandler: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement

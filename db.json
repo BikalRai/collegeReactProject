@@ -11,7 +11,6 @@
       "description": "High-quality gaming keyboard with RGB lighting",
       "quantity": 50,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -25,7 +24,6 @@
       "description": "Durable mechanical keyboard for pro gamers",
       "quantity": 30,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -39,7 +37,6 @@
       "description": "RGB backlit keyboard with customizable keys",
       "quantity": 40,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -53,7 +50,6 @@
       "description": "Wireless keyboard with long battery life",
       "quantity": 25,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -67,7 +63,6 @@
       "description": "High-precision gaming mouse",
       "quantity": 60,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -81,7 +76,6 @@
       "description": "Durable mouse pad with smooth surface",
       "quantity": 35,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -95,7 +89,6 @@
       "description": "Professional mechanical keyboard for gamers",
       "quantity": 20,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -109,7 +102,6 @@
       "description": "Surround sound gaming headset",
       "quantity": 45,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -123,7 +115,6 @@
       "description": "Slim design keyboard for portability",
       "quantity": 30,
       "rating": 0,
-      "onSale": true,
       "reviews": []
     },
     {
@@ -137,7 +128,35 @@
       "description": "Ergonomic chair for long gaming sessions",
       "quantity": 15,
       "rating": 0,
-      "onSale": true,
+      "reviews": []
+    },
+    {
+      "id": "ff436f7f-0431-4edf-b597-4d864410bcf8",
+      "name": "Alienware X17 R2",
+      "price": "1500",
+      "discountPrice": "1000",
+      "images": [],
+      "badge": [1, 2],
+      "categories": "Peripherals",
+      "description": "Best laptop",
+      "quantity": 10,
+      "rating": 0,
+      "reviews": []
+    },
+    {
+      "id": "d3ab1a8c-556c-4f0d-b2cd-2c3bc61e43a4",
+      "name": "Alienware X17 R2",
+      "price": "1500",
+      "discountPrice": "1400",
+      "images": [
+        "https://res.cloudinary.com/dghzxdx84/image/upload/v1756140857/ytgks9nwllt7j4glzuvz.png",
+        "https://res.cloudinary.com/dghzxdx84/image/upload/v1756140860/bh1lzxhezpt9jswsvrto.png"
+      ],
+      "badge": [3, 2],
+      "categories": "Peripherals",
+      "description": "Best of the best",
+      "quantity": 2,
+      "rating": 0,
       "reviews": []
     }
   ]

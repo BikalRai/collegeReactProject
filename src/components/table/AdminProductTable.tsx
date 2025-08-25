@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { ProductTypes } from "../../utilities/types/productType";
 import TertiaryButton from "../button/TertiaryButton";
 
@@ -6,6 +7,8 @@ interface TableProps {
 }
 
 const AdminProductTable = ({ products }: TableProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className='overflow-x-auto rounded-2xl'>
       <table className='w-full border-collapse divide-y divide-muted '>
@@ -42,7 +45,7 @@ const AdminProductTable = ({ products }: TableProps) => {
               Description
             </th>
             <th className='px-6 py-3 text-center text-xs font-medium uppercase tracking-wider max-w-[150px] truncate'>
-              On Sale
+              Badges
             </th>
             <th className='px-6 py-3 text-center text-xs font-medium uppercase tracking-wider'>
               Actions
@@ -86,11 +89,19 @@ const AdminProductTable = ({ products }: TableProps) => {
                 {product.description}
               </td>
               <td className='px-6 py-4 text-sm text-center text-gray-500 max-w-[150px] truncate'>
-                {product.onSale}
+                {product.badge.length}
               </td>
+
               <td className='px-6 py-4 text-sm text-center font-medium flex flex-col gap-2 items-center '>
-                <TertiaryButton btnText='Edit' />
-                <TertiaryButton btnText='Delete' />
+                <div
+                  className='w-fit'
+                  onClick={() => navigate(`/products/edit/${product.id}`)}
+                >
+                  <TertiaryButton btnText='Edit' />
+                </div>
+                <div className='w-fit'>
+                  <TertiaryButton btnText='Delete' />
+                </div>
               </td>
             </tr>
           ))}

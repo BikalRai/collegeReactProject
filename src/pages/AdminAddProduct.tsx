@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PrimaryButtonNoGlow from "../components/button/PrimaryButtonNoGlow";
 import Input from "../components/form/Input";
 import AdminHeaderWithBack from "../components/headers/AdminHeaderWithBack";
@@ -11,9 +11,12 @@ import {
   addProductFailure,
   addProductRequest,
   addProductSuccess,
+  updateProductFailure,
+  updateProductRequest,
+  updateProductSuccess,
 } from "../slices/productSlice";
 import { v4 as uuidv4 } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import type { RootState } from "../store/store";
 
 const section: HeaderWithBackTypes = {
@@ -65,9 +68,24 @@ const AdminAddProduct = () => {
 
   const dispatch = useDispatch();
 
+  const { products } = useSelector((state: RootState) => state.product);
+
   const navigate = useNavigate();
 
   const { loading } = useSelector((state: RootState) => state.product);
+
+  const { productId } = useParams();
+  const editMode = Boolean(productId);
+
+  useEffect(() => {
+    if (editMode) {
+      const product = products.find((product) => product.id === productId);
+
+      if (product) {
+        setFormData(product);
+      }
+    }
+  }, [productId]);
 
   const formDataHandler = (
     e: React.ChangeEvent<
@@ -165,6 +183,34 @@ const AdminAddProduct = () => {
     }
   };
 
+  const handleUpdate = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    dispatch(updateProductRequest());
+
+    try {
+      const uploadedImagesUrl = await uploadImagesToCloudinary(formData.images);
+      const payload: ProductTypes = {
+        ...formData,
+        images: uploadedImagesUrl,
+        id: productId,
+      };
+
+      const res = await axios.put(
+        `${import.meta.env.VITE_BASE_URL}/products/${productId}`,
+        payload
+      );
+
+      if (res.status === 200) {
+        dispatch(updateProductSuccess(payload));
+        navigate("/products");
+      }
+    } catch (error) {
+      dispatch(updateProductFailure("Failed to update product"));
+      console.error(error);
+    }
+  };
+
   console.log(formData);
 
   return (
@@ -175,13 +221,16 @@ const AdminAddProduct = () => {
           <p>Loading...</p>
         ) : (
           <>
-            <form className='grid gap-6 md:grid-cols-2'>
+            <form
+              className='grid gap-6 md:grid-cols-2'
+              onSubmit={editMode ? handleUpdate : handleSubmit}
+            >
               {formInputs.map((input, i) => {
                 const value = formData[input.name as keyof ProductTypes];
-
-                // Narrow type for Input
-                let inputValue: string | number = "";
+                let inputValue: string | number | string[] | number[] = "";
                 if (typeof value === "string" || typeof value === "number") {
+                  inputValue = value;
+                } else if (Array.isArray(value)) {
                   inputValue = value;
                 }
 
@@ -202,10 +251,13 @@ const AdminAddProduct = () => {
                   />
                 );
               })}
+              <div className='w-fit'>
+                <PrimaryButtonNoGlow
+                  btnText={editMode ? "Update" : "Add Product"}
+                  type='submit'
+                />
+              </div>
             </form>
-            <div className='w-fit' onClick={handleSubmit}>
-              <PrimaryButtonNoGlow btnText='Add Product' />
-            </div>
           </>
         )}
       </div>

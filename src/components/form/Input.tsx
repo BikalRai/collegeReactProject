@@ -1,7 +1,7 @@
 import { LuCamera, LuX } from "react-icons/lu";
 import type { InputType } from "../../utilities/types/appTypes";
 import ProductReviewTextarea from "../productPage/ProductReviewTextarea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PrimaryButtonNoGlow from "../button/PrimaryButtonNoGlow";
 import type { Badge } from "../../utilities/types/productType";
 
@@ -69,14 +69,36 @@ const Input = ({
     });
   };
 
+  // Sync images from parent (edit mode)
+  useEffect(() => {
+    if (type === "file" && Array.isArray(inputValue)) {
+      setImages(inputValue as string[]);
+    }
+  }, [inputValue, type]);
+
+  // Sync badges from parent (edit mode)
+  useEffect(() => {
+    if (
+      (name === "badge" || type === "checkbox") &&
+      Array.isArray(inputValue)
+    ) {
+      setSelectedBadges(inputValue as unknown as number[]);
+    }
+  }, [inputValue, name, type]);
+
   if (type === "textarea") {
+    const textareaValue = typeof inputValue === "string" ? inputValue : "";
     return (
       <ProductReviewTextarea
         title='Product description'
         placeholderText={inputPlaceholder}
         textRow={10}
-        value={inputValue}
-        onChange={inputHandler}
+        value={textareaValue}
+        onChange={(val: string) =>
+          inputHandler({
+            target: { name, value: val, type },
+          } as unknown as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>)
+        }
       />
     );
   }
