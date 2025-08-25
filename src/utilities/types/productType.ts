@@ -9,12 +9,13 @@ export interface ProductTypes {
 }
 
 export interface CreateProductPayload {
+  [key: string]: string | string[] | File[] | boolean | number;
   name: string;
   price: string;
   discountPrice: string;
-  image: string[];
+  images: File[];
   badge: string[];
-  categories: string[];
+  categories: string;
   onSale: boolean;
   rating: number;
   reviews: string[];
