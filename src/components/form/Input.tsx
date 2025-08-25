@@ -111,7 +111,7 @@ const Input = ({
               />
             )}
           </div>
-          {images.map((img, index) => (
+          {images?.map((img, index) => (
             <div key={index} className='relative group'>
               <img
                 src={img}

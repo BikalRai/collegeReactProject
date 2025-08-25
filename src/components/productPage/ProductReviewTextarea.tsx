@@ -13,7 +13,13 @@ const ProductReviewTextarea = ({
         placeholder={placeholderText}
         className='resize-none outline-0 border border-muted rounded-2xl w-full p-2'
         rows={textRow}
-        onChange={onChange}
+        onChange={(e) => {
+          Object.defineProperty(e.target, "name", {
+            value: "description",
+            writable: false,
+          });
+          onChange(e);
+        }}
       ></textarea>
     </div>
   );

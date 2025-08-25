@@ -5,6 +5,16 @@ import AdminHeaderWithBack from "../components/headers/AdminHeaderWithBack";
 import AdminLayout from "../layouts/AdminLayout";
 import type { HeaderWithBackTypes } from "../utilities/types/appTypes";
 import type { ProductTypes } from "../utilities/types/productType";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addProductFailure,
+  addProductRequest,
+  addProductSuccess,
+} from "../slices/productSlice";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
+import type { RootState } from "../store/store";
 
 const section: HeaderWithBackTypes = {
   title: "Add Product",
@@ -53,6 +63,12 @@ const AdminAddProduct = () => {
     reviews: [],
   });
 
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const { loading } = useSelector((state: RootState) => state.product);
+
   const formDataHandler = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -81,41 +97,117 @@ const AdminAddProduct = () => {
     setFormData((prev) => ({ ...prev, badge: badges }));
   };
 
+  const uploadImagesToCloudinary = async (images: string[]) => {
+    const uploadUrls: string[] = [];
+
+    for (const img of images) {
+      try {
+        const file = await fetch(img).then((res) => res.blob());
+        const cloudForm = new FormData();
+        cloudForm.append("file", file);
+        cloudForm.append(
+          "upload_preset",
+          `${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET}`
+        );
+
+        const res = await axios.post(
+          `${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}`,
+          cloudForm
+        );
+
+        uploadUrls.push(res.data.secure_url);
+      } catch (error) {
+        console.error("Error uploading iamges", error);
+      }
+    }
+    return uploadUrls;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    dispatch(addProductRequest());
+
+    try {
+      const uploadedImagesUrl = await uploadImagesToCloudinary(formData.images);
+
+      const payload: ProductTypes = {
+        ...formData,
+        images: uploadedImagesUrl,
+        id: uuidv4(),
+      };
+
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/products`,
+        payload
+      );
+
+      if (res.status === 201) {
+        dispatch(addProductSuccess(payload));
+        setFormData({
+          name: "",
+          price: "",
+          discountPrice: "",
+          images: [],
+          badge: [],
+          categories: "Peripherals",
+          description: "",
+          quantity: 0,
+          rating: 0,
+          onSale: false,
+          reviews: [],
+        });
+        navigate("/products");
+      }
+    } catch (error) {
+      dispatch(addProductFailure("Failed to add product"));
+      console.error(error);
+    }
+  };
+
   console.log(formData);
 
   return (
     <AdminLayout>
       <div className='grid gap-5'>
         <AdminHeaderWithBack section={section} backPath='products' />
-        <form className='grid gap-6 md:grid-cols-2'>
-          {formInputs.map((input, i) => {
-            const value = formData[input.name as keyof ProductTypes];
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <form className='grid gap-6 md:grid-cols-2'>
+              {formInputs.map((input, i) => {
+                const value = formData[input.name as keyof ProductTypes];
 
-            // Narrow type for Input
-            let inputValue: string | number = "";
-            if (typeof value === "string" || typeof value === "number") {
-              inputValue = value;
-            }
+                // Narrow type for Input
+                let inputValue: string | number = "";
+                if (typeof value === "string" || typeof value === "number") {
+                  inputValue = value;
+                }
 
-            return (
-              <Input
-                key={i}
-                name={input.name}
-                type={input.type}
-                inputPlaceholder={input.inputPlaceholder}
-                inputValue={inputValue}
-                inputHandler={formDataHandler}
-                onImagesChange={
-                  input.type === "file" ? handleImages : undefined
-                }
-                onBadgesChange={
-                  input.type === "checkbox" ? handleBadges : undefined
-                }
-              />
-            );
-          })}
-        </form>
-        <PrimaryButtonNoGlow btnText='Add Product' />
+                return (
+                  <Input
+                    key={i}
+                    name={input.name}
+                    type={input.type}
+                    inputPlaceholder={input.inputPlaceholder}
+                    inputValue={inputValue}
+                    inputHandler={formDataHandler}
+                    onImagesChange={
+                      input.type === "file" ? handleImages : undefined
+                    }
+                    onBadgesChange={
+                      input.type === "checkbox" ? handleBadges : undefined
+                    }
+                  />
+                );
+              })}
+            </form>
+            <div className='w-fit' onClick={handleSubmit}>
+              <PrimaryButtonNoGlow btnText='Add Product' />
+            </div>
+          </>
+        )}
       </div>
     </AdminLayout>
   );
